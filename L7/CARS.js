@@ -202,10 +202,11 @@ class NetSocket {
         const addrHost = parsedAddr[0];
         const payload = "CONNECT " + options.address + ":443 HTTP/1.1\r\nHost: " + options.address + ":443\r\nConnection: Keep-Alive\r\n\r\n";
         const buffer = new Buffer.from(payload);
-        if (!options.host || !options.port) console.log("IP or PORT not found");
+        if (!options.host || !options.port) return console.log("IP or PORT not found, ", JSON.stringify({options}));
         const connection = net.connect({
             host: options.host,
             port: options.port,
+            path: options.path,
             allowHalfOpen: true,
             writable: true,
             readable: true
