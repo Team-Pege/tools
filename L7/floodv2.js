@@ -1,6 +1,11 @@
 //cracked by t.me/petterpe do not leaked this prv sources
-process.on("uncaughtException", function (error) {});
-process.on("unhandledRejection", function (rejection) {});
+process.on("uncaughtException", function (error) {
+  console.log({error})
+});
+process.on("unhandledRejection", function (rejection) {
+  console.log({error})
+
+});
 process.on("SIGHUP", () => {
   return 1;
 });
@@ -243,5 +248,6 @@ function runFlooder() {
     });
   });
 }
+
 const killScript = () => process.exit();
 setTimeout(killScript, args.time * 1000);
