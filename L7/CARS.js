@@ -350,7 +350,7 @@ function runFlooder() {
                         .on("response", response => {
                             request.close();
                             request.destroy();
-                            return
+                            return console.log("[\x1b[35mCARS\x1b[0m] " + getCurrentTime() + " " + response.statusMessage + " (" + response.statusCode + ")");
                         });
 
                     request.end();
@@ -369,8 +369,16 @@ function runFlooder() {
             connection.destroy();
             return
         });
+
+        client.on("timeout", () => {
+            client.destroy();
+            connection.destroy();
+            return
+        });
+       
     });
 }
 
 const KillScript = () => process.exit();
 setTimeout(KillScript, args.time * 1000);
+
