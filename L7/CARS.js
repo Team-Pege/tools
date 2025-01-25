@@ -202,7 +202,7 @@ class NetSocket {
         const addrHost = parsedAddr[0];
         const payload = "CONNECT " + options.address + ":443 HTTP/1.1\r\nHost: " + options.address + ":443\r\nConnection: Keep-Alive\r\n\r\n";
         const buffer = new Buffer.from(payload);
-        console.log({options})
+        if (!options.host || !options.port) return;
         const connection = net.connect({
             host: options.host,
             port: options.port,
