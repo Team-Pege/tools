@@ -3,7 +3,7 @@ process.on("uncaughtException", function (error) {
   console.log({error})
 });
 process.on("unhandledRejection", function (rejection) {
-  console.log({error})
+  console.log({rejection})
 
 });
 process.on("SIGHUP", () => {
